@@ -1,0 +1,46 @@
+{
+	"title": "Launshi",
+
+	"subtitle": "Standard project Launcher for the Shidacea engine",
+
+	"description": "The project of the standard Launcher application shipped by default with Shidacea",
+
+	"genres": [
+		"Tool",
+		"Utility"
+	],
+
+	"project_version": "0.2.0",
+
+	"shidacea_version": "0.2.0",
+
+	"developers": [
+		"Hadeweka"
+	],
+
+	"year": 2020,
+
+	"keywords": [
+		"sfml",
+		"utility",
+		"launcher"
+	],
+
+	"thumbnail": "assets/graphics/project/Thumbnail.png",
+
+	"screenshots": [
+		{
+			"file": "",
+			"caption": "Dummy"
+		}
+	],
+
+	"jingle": "",
+
+	"scripts": [
+		"scripts/core/",
+		"scripts/custom/resources/",
+		"scripts/custom/scenes/",
+		"scripts/custom/Main.rb"
+	]
+}
