@@ -32,7 +32,7 @@ module SDC
 			@tile_height = 60
 
 			# Can be used for more detailed collisions
-			@tile_shape = SDC::ShapeBox.new(SDC::Coordinates.new(0, 0), SDC::Coordinates.new(@tile_width * 0.5, @tile_height * 0.5))
+			@tile_shape = SDC::ShapeBox.new(SDC::Coordinates.new(-@tile_width * 0.5, -@tile_height * 0.5), SDC::Coordinates.new(@tile_width, @tile_height))
 
 			@number_of_layers.times do |i|
 				new_layer = SDC::MapLayer.new(@width, @height, @view_width, @view_height, @tile_width, @tile_height)
@@ -51,10 +51,10 @@ module SDC
 			ey = entity.position.y
 
 			any_result = false
-			
+
 			boxes.each do |box|
-				ix_low = ((ex - box.size.x * box.scale.x + box.offset.x) / @tile_width).floor
-				iy_low = ((ey - box.size.y * box.scale.y + box.offset.y) / @tile_height).floor
+				ix_low = ((ex + box.offset.x) / @tile_width).floor
+				iy_low = ((ey + box.offset.y) / @tile_height).floor
 				ix_high = ((ex + box.size.x * box.scale.x + box.offset.x) / @tile_width).floor
 				iy_high = ((ey + box.size.y * box.scale.y + box.offset.y) / @tile_height).floor
 
