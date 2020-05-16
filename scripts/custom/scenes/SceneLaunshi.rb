@@ -29,24 +29,24 @@ module SDC
 				@info_buttons = []
 				@genre_buttons = []
 
-				name_button_filter_shape = SDC::ShapeBox.new(SDC::Coordinates.new(5 + 150, 13 + 10 + 1*(@title_offset_y + @title_size)), SDC::Coordinates.new(150, 10))
+				name_button_filter_shape = SDC::ShapeBox.new(SDC::Coordinates.new(5, 13 + 1*(@title_offset_y + @title_size)), SDC::Coordinates.new(300, 20))
 				@name_filter_button = SDC::Button.new(shape: name_button_filter_shape)
 
-				name_finish_shape = SDC::ShapeBox.new(SDC::Coordinates.new(5 + 300 + 15, 13 + 15 + 1*(@title_offset_y + @title_size)), SDC::Coordinates.new(15, 15))
+				name_finish_shape = SDC::ShapeBox.new(SDC::Coordinates.new(5 + 300, 13 + 1*(@title_offset_y + @title_size)), SDC::Coordinates.new(30, 30))
 				@name_finish_button = SDC::Button.new(shape: name_finish_shape)
 
-				desc_button_filter_shape = SDC::ShapeBox.new(SDC::Coordinates.new(5 + 150, 13 + 10 + 3*(@title_offset_y + @title_size)), SDC::Coordinates.new(150, 10))
+				desc_button_filter_shape = SDC::ShapeBox.new(SDC::Coordinates.new(5, 13 + 3*(@title_offset_y + @title_size)), SDC::Coordinates.new(300, 20))
 				@desc_filter_button = SDC::Button.new(shape: desc_button_filter_shape)
 
-				desc_finish_shape = SDC::ShapeBox.new(SDC::Coordinates.new(5 + 300 + 15, 13 + 15 + 3*(@title_offset_y + @title_size)), SDC::Coordinates.new(15, 15))
+				desc_finish_shape = SDC::ShapeBox.new(SDC::Coordinates.new(5 + 300, 13 + 3*(@title_offset_y + @title_size)), SDC::Coordinates.new(30, 30))
 				@desc_finish_button = SDC::Button.new(shape: desc_finish_shape)
 
 				0.upto(3) do |i|
-					button_start_shape = SDC::ShapeBox.new(SDC::Coordinates.new(585 + 40, i*180 + 140 + 15), SDC::Coordinates.new(40, 15))
+					button_start_shape = SDC::ShapeBox.new(SDC::Coordinates.new(585, i*180 + 140), SDC::Coordinates.new(80, 30))
 					button_start = SDC::Button.new(shape: button_start_shape)
 					@start_buttons[i] = button_start
 
-					button_info_shape = SDC::ShapeBox.new(SDC::Coordinates.new(585 + 100 + 40, i*180 + 140 + 15), SDC::Coordinates.new(40, 15))
+					button_info_shape = SDC::ShapeBox.new(SDC::Coordinates.new(585 + 100, i*180 + 140), SDC::Coordinates.new(80, 30))
 					button_info = SDC::Button.new(shape: button_info_shape)
 					@info_buttons[i] = button_info
 				end
@@ -55,7 +55,7 @@ module SDC
 				gx = 0
 				gy = 0
 				SDC::Launshi::AVAILABLE_GENRES.each do |genre|
-					button_genre_shape = SDC::ShapeBox.new(SDC::Coordinates.new(10 + 180*gx + 15, offset_y + (30 + 10)*gy + 15), SDC::Coordinates.new(15, 15))
+					button_genre_shape = SDC::ShapeBox.new(SDC::Coordinates.new(10 + 180*gx, offset_y + (30 + 10)*gy), SDC::Coordinates.new(30, 30))
 					button_genre = SDC::Button.new(shape: button_genre_shape)
 					@genre_buttons.push(button_genre)
 
