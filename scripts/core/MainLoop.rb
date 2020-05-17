@@ -7,6 +7,8 @@ def main_routine(scene_class, game_class, title, width, height)
 		SDC.window = SDC::Window.new(title, width, height)
 		SDC.limiter = SDC::Limiter.new(max: 720, renders_per_second: 60, ticks_per_second: 60, gc_per_second: 60)
 
+		GC.disable
+
 		# Update routine, formulated as block for the limiter
 		SDC.limiter.set_update_routine do
 			SDC.scene.process_events
@@ -32,7 +34,9 @@ def main_routine(scene_class, game_class, title, width, height)
 		# Garbage collecting routine
 		SDC.limiter.set_gc_routine do
 			# Initiate garbace collector
+			GC.enable
 			GC.start
+			GC.disable
 		end
 
 		SDC.game = game_class&.new
@@ -64,6 +68,8 @@ def main_routine(scene_class, game_class, title, width, height)
 		end
 
 		SDC.window.close
+
+		GC.enable
 
 	rescue Exception => exc
 		f = File.open("log.txt", "a")
