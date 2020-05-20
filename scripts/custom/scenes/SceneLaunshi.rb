@@ -220,7 +220,7 @@ module SDC
 						SDC.draw_texture(filename: "assets/graphics/Checkbox.png", coordinates: SDC::Coordinates.new(10 + 180*gx, offset_y + (30 + 10)*gy))
 					end
 
-					SDC.draw_text(index: :GenreText, text: genre, font_index: :Standard, size: @title_size, coordinates: SDC::Coordinates.new(10 + 30 + 10 + 180*gx, offset_y + 2 + (30 + 10)*gy))
+					SDC.draw_text(index: "GenreText#{gx}_#{gy}".to_sym, text: genre, font_index: :Standard, size: @title_size, coordinates: SDC::Coordinates.new(10 + 30 + 10 + 180*gx, offset_y + 2 + (30 + 10)*gy))
 					@genre_buttons[gy*2 + gx].draw
 					
 					gx += 1
@@ -272,7 +272,7 @@ module SDC
 					SDC.draw_text(index: :TextStart, text: "START", font_index: :Standard, size: @title_size, color: text_color, coordinates: SDC::Coordinates.new(585 + 8, i*180 + 140 + 2))
 
 					SDC.draw_texture(filename: "assets/graphics/Button.png", coordinates: SDC::Coordinates.new(585 + 100, i*180 + 140))
-					SDC.draw_text(index: :TextStart, text: "INFO", font_index: :Standard, size: @title_size, color: text_color, coordinates: SDC::Coordinates.new(585 + 100 + 15, i*180 + 140 + 2))
+					SDC.draw_text(index: :TextInfo, text: "INFO", font_index: :Standard, size: @title_size, color: text_color, coordinates: SDC::Coordinates.new(585 + 100 + 15, i*180 + 140 + 2))
 
 					if !correct_version then
 						SDC.draw_text(index: :TextErrorTop, text: "Project does not run on Shidacea version #{SDC::Script.version}", font_index: Standard, size: @wrong_version_size, color: COLOR_TEXT_DISABLED, coordinates: SDC::Coordinates.new(585 + 200 - 10, i*180 + 140 - 3))
