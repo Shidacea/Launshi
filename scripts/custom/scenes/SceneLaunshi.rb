@@ -247,19 +247,19 @@ module SDC
 
 					offset = Coordinates.new(580 + @title_offset_x, i*180 + @title_offset_y)
 
-					SDC.draw_text(index: :TextTitle, text: config.json["title"], font_index: :Standard, size: @title_size, coordinates: offset)
+					SDC.draw_text(index: "TextTitle#{i}".to_sym, text: config.json["title"], font_index: :Standard, size: @title_size, coordinates: offset)
 
 					offset.y += @title_size + @title_offset_y
-					SDC.draw_text(index: :TextSubtitle, text: config.json["subtitle"], font_index: :Standard, size: @title_size, coordinates: offset)
+					SDC.draw_text(index: "TextSubtitle#{i}".to_sym, text: config.json["subtitle"], font_index: :Standard, size: @title_size, coordinates: offset)
 
 					offset.y += @title_size + @title_offset_y
-					SDC.draw_text(index: :TextVersion, text: "Project version: " + config.json["project_version"], font_index: :Standard, size: @title_size, coordinates: offset)
+					SDC.draw_text(index: "TextVersion#{i}".to_sym, text: "Project version: " + config.json["project_version"], font_index: :Standard, size: @title_size, coordinates: offset)
 
 					offset.y += @title_size + @title_offset_y
-					SDC.draw_text(index: :TextGenres, text: genre_list, font_index: :Standard, size: @title_size, coordinates: offset)
+					SDC.draw_text(index: "TextGenres#{i}".to_sym, text: genre_list, font_index: :Standard, size: @title_size, coordinates: offset)
 
 					offset.y += @title_size + @title_offset_y
-					SDC.draw_text(index: :TextDevs, text: dev_list, font_index: :Standard, size: @title_size, coordinates: offset)
+					SDC.draw_text(index: "TextDevs#{i}".to_sym, text: dev_list, font_index: :Standard, size: @title_size, coordinates: offset)
 
 					version = config.json["shidacea_version"]
 
