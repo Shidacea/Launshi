@@ -39,7 +39,7 @@
 
 	"scripts": [
 		"scripts/Launshi.rb",
-		"scripts/Scene_Launshi.rb",
+		"scripts/SceneLaunshi.rb",
 		"scripts/Main.rb"
 	]
 }
