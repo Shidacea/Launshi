@@ -38,8 +38,8 @@
 	"jingle": "",
 
 	"scripts": [
-		"scripts/custom/resources/",
-		"scripts/custom/scenes/",
-		"scripts/custom/Main.rb"
+		"scripts/Launshi.rb",
+		"scripts/Scene_Launshi.rb",
+		"scripts/Main.rb"
 	]
 }
