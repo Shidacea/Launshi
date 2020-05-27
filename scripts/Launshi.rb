@@ -137,7 +137,7 @@ module SDC
 		def load_thumbnail(config)
 			old_path = SDC::Script.path
 			SDC::Script.path = config.path
-			SDC::Data.preload_texture(config.path.to_sym, config.json["thumbnail"]) if config.json["thumbnail"] && !config.json["thumbnail"].empty?
+			SDC::Data.load_texture(config.path.to_sym, filename: config.json["thumbnail"]) if config.json["thumbnail"] && !config.json["thumbnail"].empty?
 			SDC::Script.path = old_path
 		end
 
