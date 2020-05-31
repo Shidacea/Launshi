@@ -65,6 +65,7 @@ module SDC
 						@configs.push(new_config)
 
 						load_thumbnail(new_config)
+						load_screenshots(new_config)
 					end
 				end
 			end
@@ -149,14 +150,27 @@ module SDC
 			SDC::Script.path = old_path
 		end
 
+		def load_screenshots(config)
+			old_path = SDC::Script.path
+			SDC::Script.path = config.path
+			i = 0
+			config.json["screenshots"]&.each do |screenshot|
+				SDC::Data.load_texture("#{config.path}_#{i}".to_sym, filename: screenshot["file"]) if screenshot["file"]
+				i += 1
+			end
+			SDC::Script.path = old_path
+		end
+
 		def check_version(config)
 			project_version = config.json["shidacea_version"]&.split(".")
 			return false if !project_version
 
 			sdc_version = SDC::Script.version.split(".")
 
-			return false if project_version[0] != sdc_version[0]
+			return false if project_version[0].to_i > sdc_version[0].to_i
+			return nil if project_version[0].to_i < sdc_version[0].to_i
 			return false if project_version[1].to_i > sdc_version[1].to_i
+			return nil if project_version[0].to_i < 1 && project_version[1].to_i < sdc_version[1].to_i
 			return true
 		end
 
