@@ -83,6 +83,7 @@ module SDC
 
 			def handle_event(event)
 				if event.has_type?(:Closed) then
+					SDC::Launshi::set_definite_exit
 					SDC.next_scene = nil
 
 				elsif SDC.text_input == FILTER_NAME then

@@ -13,6 +13,14 @@ module SDC
 
 		attr_accessor :name_filter, :description_filter, :genre_filters, :keyword_filters
 
+		def self.set_definite_exit
+			@definite_exit = true
+		end
+
+		def self.definite_exit
+			return @definite_exit
+		end
+
 		class Config
 
 			attr_reader :path, :json
