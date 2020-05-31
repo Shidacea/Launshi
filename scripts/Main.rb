@@ -1,6 +1,6 @@
 # Scene for Launshi
 
-main_routine(SDC::Launshi::SceneLaunshi, nil, 'Shidacea - Launshi', 1280, 720)
+main_routine(SDC::Launshi::SceneLaunshi, title: 'Shidacea - Launshi', width: 1280, height: 720)
 
 # Some scripts and containers will be resetted, thus the old window will be terminated
 
