@@ -1,6 +1,10 @@
 # Scene for Launshi
 
+original_path = SDC::Script.path
+
 while !SDC::Launshi.definite_exit do
+
+	SDC::Script.path = original_path
 
 	main_routine(SDC::Launshi::SceneLaunshi, title: 'Shidacea - Launshi', width: 1280, height: 720)
 
