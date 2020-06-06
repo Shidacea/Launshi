@@ -6,7 +6,7 @@ while !SDC::Launshi.definite_exit do
 
 	SDC::Script.path = original_path
 
-	main_routine(SDC::Launshi::SceneLaunshi, title: 'Shidacea - Launshi', width: 1280, height: 720)
+	SDC.main_routine(SDC::Launshi::SceneLaunshi, title: 'Shidacea - Launshi', width: 1280, height: 720)
 
 	# Some scripts and containers will be resetted, thus the old window will be terminated
 
