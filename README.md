@@ -1,6 +1,3 @@
-This repository was migrated and might be deleted in the future.
-Please refer to https://github.com/Shidacea/Launshi for the new repository.
-
 # Launshi
 
 Default project launcher for the Shidacea engine
