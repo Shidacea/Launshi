@@ -3,7 +3,7 @@
 module SDC
 	class Launshi
 
-		PROJECT_FILE_NAME = "project.json"
+		PROJECT_FILE_PATTERN = /project(_[a-zA-Z\d]+)?.json/
 
 		AVAILABLE_GENRES = ["Demo", "Shooter", "Platformer", "Fighting", "Survival", 
 			"Adventure", "Horror", "Visual novel", "RPG", "Roguelike", 
@@ -57,15 +57,17 @@ module SDC
 			end
 			Dir.foreach(path) do |entry|
 				if !entry.start_with?(".") && File.directory?(path + "/" + entry) then
-					config_file_name = path + "/" + entry + "/" + PROJECT_FILE_NAME
+					Dir.foreach(path + "/" + entry) do |content|
+						if !content.start_with?(".") && !File.directory?(path + "/" + entry + "/" + content) then
+							if PROJECT_FILE_PATTERN.match(content) then
+								new_config = self.load_config_file(path + "/" + entry, content)
 
-					if File.exist?(config_file_name) then
-						new_config = self.load_config_file(path + "/" + entry, PROJECT_FILE_NAME)
+								@configs.push(new_config)
 
-						@configs.push(new_config)
-
-						load_thumbnail(new_config)
-						load_screenshots(new_config)
+								load_thumbnail(new_config)
+								load_screenshots(new_config)
+							end
+						end
 					end
 				end
 			end
