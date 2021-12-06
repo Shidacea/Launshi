@@ -57,7 +57,7 @@ module SDC
 				if !entry.start_with?(".") && File.directory?(path + "/" + entry) then
 					Dir.foreach(path + "/" + entry) do |content|
 						if !content.start_with?(".") && !File.directory?(path + "/" + entry + "/" + content) then
-							if /project(_[a-zA-Z\d]+)?.json/.match(content) then
+							if content.end_with?(".json")
 								new_config = self.load_config_file(path + "/" + entry, content)
 
 								@configs.push(new_config)
