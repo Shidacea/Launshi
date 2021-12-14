@@ -1,9 +1,9 @@
 module SDC
 	class Launshi
 
-		COLOR_TEXT_REGULAR = SDC::Color.new(255, 255, 255, 255)
-		COLOR_TEXT_DISABLED = SDC::Color.new(127, 0, 0, 255)
-		COLOR_TEXT_INPUT = SDC::Color.new(0, 0, 0, 255)
+		COLOR_TEXT_REGULAR = SF::Color.new(255, 255, 255, 255)
+		COLOR_TEXT_DISABLED = SF::Color.new(127, 0, 0, 255)
+		COLOR_TEXT_INPUT = SF::Color.new(0, 0, 0, 255)
 
 		FILTER_NAME = 0
 		FILTER_DESC = 1
@@ -31,24 +31,24 @@ module SDC
 
 				@info_window = nil
 
-				name_button_filter_shape = SDC::CollisionShapeBox.new(SDC::Coordinates.new(5, 13 + 1*(@title_offset_y + @title_size)), SDC::Coordinates.new(300, 20))
+				name_button_filter_shape = SF::CollisionShapeBox.new(SF::Coordinates.new(5, 13 + 1*(@title_offset_y + @title_size)), SF::Coordinates.new(300, 20))
 				@name_filter_button = SDC::Button.new(shape: name_button_filter_shape)
 
-				name_finish_shape = SDC::CollisionShapeBox.new(SDC::Coordinates.new(5 + 300, 13 + 1*(@title_offset_y + @title_size)), SDC::Coordinates.new(30, 30))
+				name_finish_shape = SF::CollisionShapeBox.new(SF::Coordinates.new(5 + 300, 13 + 1*(@title_offset_y + @title_size)), SF::Coordinates.new(30, 30))
 				@name_finish_button = SDC::Button.new(shape: name_finish_shape)
 
-				desc_button_filter_shape = SDC::CollisionShapeBox.new(SDC::Coordinates.new(5, 13 + 3*(@title_offset_y + @title_size)), SDC::Coordinates.new(300, 20))
+				desc_button_filter_shape = SF::CollisionShapeBox.new(SF::Coordinates.new(5, 13 + 3*(@title_offset_y + @title_size)), SF::Coordinates.new(300, 20))
 				@desc_filter_button = SDC::Button.new(shape: desc_button_filter_shape)
 
-				desc_finish_shape = SDC::CollisionShapeBox.new(SDC::Coordinates.new(5 + 300, 13 + 3*(@title_offset_y + @title_size)), SDC::Coordinates.new(30, 30))
+				desc_finish_shape = SF::CollisionShapeBox.new(SF::Coordinates.new(5 + 300, 13 + 3*(@title_offset_y + @title_size)), SF::Coordinates.new(30, 30))
 				@desc_finish_button = SDC::Button.new(shape: desc_finish_shape)
 
 				0.upto(3) do |i|
-					button_start_shape = SDC::CollisionShapeBox.new(SDC::Coordinates.new(585, i*180 + 140), SDC::Coordinates.new(80, 30))
+					button_start_shape = SF::CollisionShapeBox.new(SF::Coordinates.new(585, i*180 + 140), SF::Coordinates.new(80, 30))
 					button_start = SDC::Button.new(shape: button_start_shape)
 					@start_buttons[i] = button_start
 
-					button_info_shape = SDC::CollisionShapeBox.new(SDC::Coordinates.new(585 + 100, i*180 + 140), SDC::Coordinates.new(80, 30))
+					button_info_shape = SF::CollisionShapeBox.new(SF::Coordinates.new(585 + 100, i*180 + 140), SF::Coordinates.new(80, 30))
 					button_info = SDC::Button.new(shape: button_info_shape)
 					@info_buttons[i] = button_info
 				end
@@ -57,7 +57,7 @@ module SDC
 				gx = 0
 				gy = 0
 				SDC::Launshi::AVAILABLE_GENRES.each do |genre|
-					button_genre_shape = SDC::CollisionShapeBox.new(SDC::Coordinates.new(10 + 180*gx, offset_y + (30 + 10)*gy), SDC::Coordinates.new(30, 30))
+					button_genre_shape = SF::CollisionShapeBox.new(SF::Coordinates.new(10 + 180*gx, offset_y + (30 + 10)*gy), SF::Coordinates.new(30, 30))
 					button_genre = SDC::Button.new(shape: button_genre_shape)
 					@genre_buttons.push(button_genre)
 
@@ -119,7 +119,7 @@ module SDC
 
 				if @info_window then
 					if event.has_type?(:MouseButtonReleased) then
-						if !SDC.mouse_touching?(SDC::CollisionShapeBox.new(SDC.xy(240, 60), SDC.xy(800, 600))) then
+						if !SDC.mouse_touching?(SF::CollisionShapeBox.new(SDC.xy(240, 60), SDC.xy(800, 600))) then
 							@info_window = false
 						end
 					end
@@ -242,7 +242,7 @@ module SDC
 			end
 
 			def draw
-				view_default = SDC::View.new(SDC::FloatRect.new(0, 0, 1280, 720))
+				view_default = SF::View.new(SF::FloatRect.new(0, 0, 1280, 720))
 				SDC.window.set_view(view_default)
 
 				SDC.draw_texture(filename: "assets/graphics/FrameFilters.png", coordinates: SDC.xy(0, 0))
@@ -323,8 +323,8 @@ module SDC
 						next if i > 0
 						texture_size = SDC::Data.textures["#{config.path}_#{i}".to_sym].size
 
-						view_preview = SDC::View.new(SDC::FloatRect.new(0, 0, texture_size.x, texture_size.y))
-						view_preview.set_viewport(SDC::FloatRect.new((240 + 200) / 1280, (60 + 600 - 5 - 300) / 720, 400 / 1280 , 300 / 720))
+						view_preview = SF::View.new(SF::FloatRect.new(0, 0, texture_size.x, texture_size.y))
+						view_preview.set_viewport(SF::FloatRect.new((240 + 200) / 1280, (60 + 600 - 5 - 300) / 720, 400 / 1280 , 300 / 720))
 
 						SDC.window.use_view(view_preview) do
 							SDC.draw_texture(index: "#{config.path}_#{i}".to_sym, coordinates: SDC.xy(0, 0), z: 1)
