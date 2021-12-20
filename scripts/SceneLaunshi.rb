@@ -31,24 +31,24 @@ module SDC
 
 				@info_window = nil
 
-				name_button_filter_shape = SF::CollisionShapeBox.new(offset: SDC.xy(5, 13 + 1*(@title_offset_y + @title_size)), size: SDC.xy(300, 20))
+				name_button_filter_shape = SDC::CollisionShapeBox.new(offset: SDC.xy(5, 13 + 1*(@title_offset_y + @title_size)), size: SDC.xy(300, 20))
 				@name_filter_button = SDC::Button.new(shape: name_button_filter_shape)
 
-				name_finish_shape = SF::CollisionShapeBox.new(offset: SDC.xy(5 + 300, 13 + 1*(@title_offset_y + @title_size)), size: SDC.xy(30, 30))
+				name_finish_shape = SDC::CollisionShapeBox.new(offset: SDC.xy(5 + 300, 13 + 1*(@title_offset_y + @title_size)), size: SDC.xy(30, 30))
 				@name_finish_button = SDC::Button.new(shape: name_finish_shape)
 
-				desc_button_filter_shape = SF::CollisionShapeBox.new(offset: SDC.xy(5, 13 + 3*(@title_offset_y + @title_size)), size: SDC.xy(300, 20))
+				desc_button_filter_shape = SDC::CollisionShapeBox.new(offset: SDC.xy(5, 13 + 3*(@title_offset_y + @title_size)), size: SDC.xy(300, 20))
 				@desc_filter_button = SDC::Button.new(shape: desc_button_filter_shape)
 
-				desc_finish_shape = SF::CollisionShapeBox.new(offset: SDC.xy(5 + 300, 13 + 3*(@title_offset_y + @title_size)), size: SDC.xy(30, 30))
+				desc_finish_shape = SDC::CollisionShapeBox.new(offset: SDC.xy(5 + 300, 13 + 3*(@title_offset_y + @title_size)), size: SDC.xy(30, 30))
 				@desc_finish_button = SDC::Button.new(shape: desc_finish_shape)
 
 				0.upto(3) do |i|
-					button_start_shape = SF::CollisionShapeBox.new(offset: SDC.xy(585, i*180 + 140), size: SDC.xy(80, 30))
+					button_start_shape = SDC::CollisionShapeBox.new(offset: SDC.xy(585, i*180 + 140), size: SDC.xy(80, 30))
 					button_start = SDC::Button.new(shape: button_start_shape)
 					@start_buttons[i] = button_start
 
-					button_info_shape = SF::CollisionShapeBox.new(offset: SDC.xy(585 + 100, i*180 + 140), size: SDC.xy(80, 30))
+					button_info_shape = SDC::CollisionShapeBox.new(offset: SDC.xy(585 + 100, i*180 + 140), size: SDC.xy(80, 30))
 					button_info = SDC::Button.new(shape: button_info_shape)
 					@info_buttons[i] = button_info
 				end
@@ -57,7 +57,7 @@ module SDC
 				gx = 0
 				gy = 0
 				SDC::Launshi::AVAILABLE_GENRES.each do |genre|
-					button_genre_shape = SF::CollisionShapeBox.new(offset: SDC.xy(10 + 180*gx, offset_y + (30 + 10)*gy), size: SDC.xy(30, 30))
+					button_genre_shape = SDC::CollisionShapeBox.new(offset: SDC.xy(10 + 180*gx, offset_y + (30 + 10)*gy), size: SDC.xy(30, 30))
 					button_genre = SDC::Button.new(shape: button_genre_shape)
 					@genre_buttons.push(button_genre)
 
@@ -119,7 +119,7 @@ module SDC
 
 				if @info_window then
 					if event.has_type?(:MouseButtonReleased) then
-						if !SDC.mouse_touching?(SF::CollisionShapeBox.new(offset: SDC.xy(240, 60), size: SDC.xy(800, 600))) then
+						if !SDC.mouse_touching?(SDC::CollisionShapeBox.new(offset: SDC.xy(240, 60), size: SDC.xy(800, 600))) then
 							@info_window = false
 						end
 					end
