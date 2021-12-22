@@ -1,9 +1,9 @@
 module SDC
 	class Launshi
 
-		COLOR_TEXT_REGULAR = SF::Color.new(255, 255, 255, alpha: 255)
-		COLOR_TEXT_DISABLED = SF::Color.new(127, 0, 0, alpha: 255)
-		COLOR_TEXT_INPUT = SF::Color.new(0, 0, 0, alpha: 255)
+		COLOR_TEXT_REGULAR = SDC.color(255, 255, 255, alpha: 255)
+		COLOR_TEXT_DISABLED = SDC.color(127, 0, 0, alpha: 255)
+		COLOR_TEXT_INPUT = SDC.color(0, 0, 0, alpha: 255)
 
 		FILTER_NAME = 0
 		FILTER_DESC = 1
