@@ -71,7 +71,7 @@ module SDC
 			
 			def scroll_down
 				@active_config_id += 1
-				@active_config_id = [@active_config_id, [0, @launshi.get_configs.size - 4 - 1].max].min
+				@active_config_id = [@active_config_id, [0, @launshi.get_configs.size - 4].max].min
 			end
 
 			def scroll_up
