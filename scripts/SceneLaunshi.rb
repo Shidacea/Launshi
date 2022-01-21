@@ -242,7 +242,7 @@ module SDC
 			end
 
 			def draw
-				view_default = SF::View.new(SF::FloatRect.new(0, 0, 1280, 720))
+				view_default = SDC::Graphics::View.new(SDC::FloatRect.new(0, 0, 1280, 720))
 				SDC.window.set_view(view_default)
 
 				SDC.draw_texture(filename: "assets/graphics/FrameFilters.png", coordinates: SDC.xy(0, 0))
@@ -323,8 +323,8 @@ module SDC
 						next if i > 0
 						texture_size = SDC::Data.textures["#{config.path}_#{i}".to_sym].size
 
-						view_preview = SF::View.new(SF::FloatRect.new(0, 0, texture_size.x, texture_size.y))
-						view_preview.set_viewport(SF::FloatRect.new((240 + 200) / 1280, (60 + 600 - 5 - 300) / 720, 400 / 1280 , 300 / 720))
+						view_preview = SDC::Graphics::View.new(SDC::FloatRect.new(0, 0, texture_size.x, texture_size.y))
+						view_preview.set_viewport(SDC::FloatRect.new((240 + 200) / 1280, (60 + 600 - 5 - 300) / 720, 400 / 1280 , 300 / 720))
 
 						SDC.window.use_view(view_preview) do
 							SDC.draw_texture(index: "#{config.path}_#{i}".to_sym, coordinates: SDC.xy(0, 0), z: 1)
