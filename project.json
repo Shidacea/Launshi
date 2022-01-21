@@ -41,5 +41,10 @@
 		"scripts/Launshi.rb",
 		"scripts/SceneLaunshi.rb",
 		"scripts/Main.rb"
+	],
+
+	"required_features": [
+		"sfml",
+		"collishi"
 	]
 }
