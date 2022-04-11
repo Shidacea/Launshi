@@ -45,6 +45,7 @@
 
 	"required_features": [
 		"sfml",
-		"collishi"
+		"collishi",
+		"shidacea"
 	]
 }
